@@ -1,0 +1,61 @@
+module AssertEq :sig
+  val assert-eq : string?-> ('a -> string) -> 'a -> 'a -> unit
+  direct \assert-eq : [string?; ('a -> string);'a; 'a] inline-cmd
+  direct +assert-eq : [string?; ('a -> string);'a; 'a] block-cmd
+
+end = struct
+
+  let lf = string-unexplode [10]
+
+  let esc = string-unexplode [27]
+
+  let esc-sgr n = esc ^ `[` ^ (arabic n) ^ `m`
+
+  let to-green = esc-sgr 32
+
+  let to-red = esc-sgr 31
+
+  let reset = esc-sgr 0
+
+  let panic = abort-with-message
+
+  let-mutable label-counter <- 0
+
+  let assert-eq ?:label-opt f left right =
+    let () = label-counter <- !label-counter + 1 in
+    let label =
+      match label-opt with
+      | None -> `function` ^ (arabic !label-counter)
+      | Some(s) -> s
+    in
+    let left-str = f left in
+    let right-str = f right in
+    if string-same left-str right-str then
+      display-message (`test `# ^ label ^ #` ... `# ^ to-green ^ `ok` ^ reset)
+    else
+      panic (
+        lf ^
+        `test `# ^ label ^ #` ... `# ^ lf ^
+        #` left: `# ^ left-str ^ lf ^
+         `right: `# ^ right-str
+      )
+
+
+  let-inline ctx \assert-eq ?:label-opt f left right =
+    let () =
+      match label-opt with
+        | None -> assert-eq f left right
+        | Some(label) -> assert-eq ?:(label) f left right
+      in
+      inline-nil
+
+
+  let-block ctx +assert-eq ?:label-opt f left right =
+    let () =
+      match label-opt with
+        | None -> assert-eq f left right
+        | Some(label) -> assert-eq ?:(label) f left right
+      in
+      block-nil
+
+end

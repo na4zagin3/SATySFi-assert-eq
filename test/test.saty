@@ -1,0 +1,14 @@
+@require: stdjabook
+
+@import: ../assert-eq
+
+document (|
+  title = {test};
+  author = {\@puripuri2100};
+  show-title = false;
+  show-toc = false;
+|) '<
+  +assert-eq(arabic)(1)(1);
+  +assert-eq(arabic)(3)(1+2);
+%  +assert-eq(arabic)(3)(1);
+>
