@@ -1,0 +1,14 @@
+;; For Satyrographos 0.0.2 series
+(version 0.0.2)
+
+(library
+  (name "assert-eq")
+  (version "0.1.0")
+  (sources
+    (
+     (package "assert-eq.satyh" "./assert-eq.satyh")
+    )
+  )
+  (opam "satysfi-assert-eq.opam")
+  (dependencies ())
+  (compatibility ((satyrographos "0.0.1"))))
