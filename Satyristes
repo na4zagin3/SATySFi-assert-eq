@@ -3,10 +3,10 @@
 
 (library
   (name "assert-eq")
-  (version "0.1.0")
+  (version "0.1.1")
   (sources
     (
-     (package "assert-eq.satyh" "./assert-eq.satyh")
+     (package "assert-eq.satyg" "./assert-eq.satyg")
     )
   )
   (opam "satysfi-assert-eq.opam")

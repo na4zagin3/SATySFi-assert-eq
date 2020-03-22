@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "satysfi-assert-eq"
-version: "0.1.0"
+version: "0.1.1"
 synopsis: "Provides function as the Rust's assert_eq! macro"
 description: """Provides function as the Rust's assert_eq! macro"""
 
