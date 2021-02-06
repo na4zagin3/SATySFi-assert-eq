@@ -1,0 +1,30 @@
+@require: stdjabook
+@require: code
+@require: annot
+@require: itemize
+
+document (|
+  title = {assert-eqのドキュメント};
+  author = {Naoki Kaneko (a.k.a. "puripuri2100")};
+  show-title = true;
+  show-toc = false;
+|) '<
+  +section {使い方} <
+    +p{作成したパッケージが想定した機能を持っているかを確認することができます。}
+    +p{\code(`assert-eq arabic (1+2) 3`);などのように、\code(`assert-eq <function> <left> <right>`);のように与えることで、\code(`<left>`);と\code(`<right>`);が一致するかどうかを確かめることができます。}
+    +p{ここで与える\code(`<function>`);は\code(`<left>`);や\code(`<right>`);での値を文字列に変換するための関数です。}
+    +p{多くの値については\href(`https://github.com/puripuri2100/SATySFi-debug-show-value`){debug-show-value}パッケージが役に立つでしょう。}
+    +p{また、エラー報告をわかりやすくするために、チェックする関数にラベルを付けることができます。これは\code(`assert-eq ?:(<label>) <function> <left> <right>`);のように、最初にオプション引数の形で与えてください。}
+  >
+
+  +section {提供関数など} <
+    +p{モジュール名：\code(`AssertEq`);}
+    +listing {
+      * \code(`assert-eq : string?-> ('a -> string) -> 'a -> 'a -> unit`);
+      * \code(`direct \assert-eq : [string?; ('a -> string);'a; 'a] inline-cmd`);
+      * \code(`direct +assert-eq : [string?; ('a -> string);'a; 'a] block-cmd`);
+    }
+    +p{組版時には\code(`\assert-eq`);コマンドは\code(`inline-nil`);と同じ挙動をし、\code(`+assert-eq`);は\code(`block-nil`);と同じ挙動をします。}
+  >
+>
+

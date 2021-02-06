@@ -10,5 +10,26 @@
     )
   )
   (opam "satysfi-assert-eq.opam")
-  (dependencies ())
-  (compatibility ((satyrographos "0.0.1"))))
+  (dependencies ()))
+
+;; Library doc declaration
+(libraryDoc
+  ;; Library doc name
+  (name "assert-eq-doc")
+  ;; Library version
+  (version "0.1.1")
+  ;; Working directory to build docs
+  (workingDirectory "doc")
+  ;; Build commands
+  (build
+    ;; Run SATySFi
+    ((satysfi "doc-ja.saty" "-o" "doc-ja.pdf")))
+  ;; Files
+  (sources
+    ((doc "doc-ja.pdf" "doc/doc-ja.pdf")))
+  ;; OPAM package file
+  (opam "satysfi-assert-eq-doc.opam")
+  ;; Dependency
+  (dependencies
+    ((assert-eq ()) ; the main library
+    )))
