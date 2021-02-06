@@ -1,8 +1,8 @@
 opam-version: "2.0"
 name: "satysfi-assert-eq-doc"
-version: "0.1.1"
-synopsis: "Provides function as the Rust's assert_eq! macro"
-description: """Provides function as the Rust's assert_eq! macro"""
+version: "0.1.2"
+synopsis: "Document: Provides function as the Rust's assert_eq! macro"
+description: """Document: Provides function as the Rust's assert_eq! macro"""
 
 maintainer: "Naoki Kaneko <puripuri2100@gmail.com>"
 authors: "Naoki Kaneko <puripuri2100@gmail.com>"

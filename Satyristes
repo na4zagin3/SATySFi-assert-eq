@@ -3,7 +3,7 @@
 
 (library
   (name "assert-eq")
-  (version "0.1.1")
+  (version "0.1.2")
   (sources
     (
      (package "assert-eq.satyg" "./assert-eq.satyg")
@@ -17,7 +17,7 @@
   ;; Library doc name
   (name "assert-eq-doc")
   ;; Library version
-  (version "0.1.1")
+  (version "0.1.2")
   ;; Working directory to build docs
   (workingDirectory "doc")
   ;; Build commands
